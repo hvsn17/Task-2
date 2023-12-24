@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: aliceblue;
+        }
+
+        h3{
+            color: #3D30A2;
+        }
+        
+        .contactform {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            color: #F8F0E5;
+            width: 400px;
+            height: 500px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        fieldset{
+            background-color: #053B50;
+        }
+
+        #name1,
+        #email1,
+        #phoneno1,
+        #suggestion1 {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .button {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .button button {
+            background-color: #053B50;
+            color: #F8F0E5;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .button button:hover {
+            background-color: #662549;
+            color: #FFFFDD;
+        }
+
+        .content {
+            color: #000000;
+        }
+
+        .error-message {
+            color:  #CDF5FD;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            background-color: #6C3428;
+            color: #FFF;
+            text-align: center;
+            padding: 5px 8px;
+            position: fixed;
+            bottom: 2px;
+            top: 566px;
+            width: 100%;
+            height: auto;
+        }
+
+        .copyright p {
+            margin: -5px;
+        }
+
+        @media screen and (max-width: 600px) {
+            .contactform {
+                width: 80%;
+        } 
+            } 
+    </style>
+</head>
+
+<body>
+    <h3>Get In touch</h3>
+    <p class="content">If you have questions/queries about our products, or if you’d like to place festive/bulk orders, please feel free
+        to reach out to us. We're happy to assist you and would be delighted to connect with you.</p>
+    <div class="contactform">
+        <form id="contactForm" action="#" method="post">
+            <fieldset>
+                <p class="name">
+                    <label for="name1">Name</label>
+                </p>
+                <input type="text" id="name1" name="name1">
+
+                <p>
+                    <label for="email1">Email</label>
+                </p>
+                <input type="text" id="email1" name="email1">
+
+                <p>
+                    <label for="phoneno1">Mobile Number</label>
+                </p>
+                <input type="text" id="phoneno1" name="phoneno1">
+
+                <p>
+                    <label for="suggestion1">Suggestion</label>
+                </p>
+                <textarea id="suggestion1" name="suggestion1" cols="30" rows="10"></textarea>
+
+                
+                <div class="error-message" id="nameError"></div>
+                <div class="error-message" id="emailError"></div>
+                <div class="error-message" id="phoneError"></div>
+                <div class="error-message" id="suggestionError"></div>
+            </fieldset>
+
+            <div class="button">
+                <button type="button" onclick="validateForm()">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name1").value;
+            var email = document.getElementById("email1").value;
+            var phone = document.getElementById("phoneno1").value;
+            var suggestion = document.getElementById("suggestion1").value;
+
+           
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("phoneError").innerHTML = "";
+            document.getElementById("suggestionError").innerHTML = "";
+
+            
+            if (name === "") {
+                document.getElementById("nameError").innerHTML = "Please enter your name.";
+                return;
+            }
+
+            
+            if (email === "") {
+                document.getElementById("emailError").innerHTML = "Please enter your email.";
+                return;
+            }
+
+            
+            if (phone === "") {
+                document.getElementById("phoneError").innerHTML = "Please enter your phone number.";
+                return;
+            }
+
+            
+            if (suggestion === "") {
+                document.getElementById("suggestionError").innerHTML = "Please enter your suggestion.";
+                return;
+            }
+
+           
+            alert("Form submitted successfully!");
+        }
+    </script>
+       <footer>
+        <div class="copyright">
+            <p>&copy; 2023 Gourmet Delight. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
